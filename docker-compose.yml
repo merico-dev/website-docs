@@ -1,0 +1,59 @@
+version: "3"
+services:
+  install:
+    image: "node:14"
+    volumes:
+      - /home/gerile.tu/code/website-docs:/home/node/code
+    working_dir: /home/node/code
+    environment:
+      - npm_config_build_from_source=true
+    user: '1002'
+    command: yarn install
+  server:
+    image: "node:14"
+    volumes:
+      - /home/gerile.tu/code/website-docs:/home/node/code
+    working_dir: /home/node/code
+    # user: '1002'
+    command: yarn start:0.0.0.0
+    networks:
+      traefik: null
+    labels:
+      traefik.docker.network: traefik_default
+      traefik.enable: "true"
+      traefik.http.routers.api-EE-6289-1000.entrypoints: web
+      traefik.http.routers.api-EE-6289-1000.rule: Host(`docs.website.ide.merico.cn`)
+      traefik.http.services.api-EE-6289-1000.loadbalancer.server.port: '8000'
+
+  download_tidb_en:
+    image: "node:14"
+    volumes:
+      - /home/gerile.tu/code/website-docs:/home/node/code
+    working_dir: /home/node/code
+    command: yarn download:tidb:en
+
+  download_tidb_en_all:
+    image: "node:14"
+    volumes:
+      - /home/gerile.tu/code/website-docs:/home/node/code
+    working_dir: /home/node/code
+    command: yarn download:tidb:en:all
+
+  download_tidb_zh:
+    image: "node:14"
+    volumes:
+      - /home/gerile.tu/code/website-docs:/home/node/code
+    working_dir: /home/node/code
+    command: yarn download:tidb:zh
+
+  download_tidb_zh_all:
+    image: "node:14"
+    volumes:
+      - /home/gerile.tu/code/website-docs:/home/node/code
+    working_dir: /home/node/code
+    command: yarn download:tidb:zh:all
+
+networks:
+  traefik:
+    external: true
+    name: traefik_default
