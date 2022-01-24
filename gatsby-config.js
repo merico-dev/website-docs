@@ -1,4 +1,4 @@
-const { remarkSyntaxDiagram } = require('./src/lib/remarkSyntaxDiagram')
+require('ts-node').register({ transpileOnly: true })
 
 module.exports = {
   siteMetadata: {
@@ -33,7 +33,7 @@ module.exports = {
         redirectDefaultLanguageToRoot: true,
       },
     },
-    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-react-helmet-async`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -62,29 +62,48 @@ module.exports = {
             },
           },
           {
+            resolve: require.resolve('./gatsby/plugin/syntax-diagram'),
+          },
+          {
             resolve: `gatsby-remark-prismjs`,
             options: {
               showLineNumbers: false,
             },
           },
         ],
-        remarkPlugins: [() => remarkSyntaxDiagram],
       },
     },
     {
       resolve: `gatsby-plugin-sass`,
       options: {
         useResolveUrlLoader: true,
+        cssLoaderOptions: {
+          modules: {
+            localIdentName:
+              process.env.NODE_ENV === 'production'
+                ? '[hash:base64:8]'
+                : '[path][name]__[local]--[hash:base64:5]',
+          },
+        },
       },
     },
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         printRejected: true,
-        ignore: ['/doc.scss', '/userFeedback.scss', 'github-markdown-css'],
+        ignore: [
+          '/doc.scss',
+          '/userFeedback.scss',
+          'github-markdown-css',
+          `.module.scss`,
+        ],
         purgeCSSOptions: {
           content: [
+            `${__dirname}/gatsby/**/*.js`,
+            `${__dirname}/gatsby/**/*.ts`,
             `${__dirname}/src/**/*.js`,
+            `${__dirname}/src/**/*.ts`,
+            `${__dirname}/src/**/*.tsx`,
             `${__dirname}/node_modules/@seagreenio/react-bulma/dist/index.es.js`,
           ],
           safelist: [
@@ -109,14 +128,6 @@ module.exports = {
         host: 'https://docs.pingcap.com',
         sitemap: 'https://docs.pingcap.com/sitemap.xml',
         policy: [{ userAgent: '*', allow: '/' }],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-hotjar`,
-      options: {
-        includeInDevelopment: false,
-        id: 2621469,
-        sv: 6,
       },
     },
   ],

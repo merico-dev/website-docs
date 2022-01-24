@@ -13,7 +13,7 @@ import nPath from 'path'
 import rimraf from 'rimraf'
 import sig from 'signale'
 
-function genOptions(repo, config, dryRun) {
+function genOptions(repo: string, config, dryRun: boolean) {
   const options = {
     pipelines: [
       () => replaceImagePathStream(imageCDNs[repo.split('/')[1]]),
@@ -37,7 +37,7 @@ function genOptions(repo, config, dryRun) {
   return options
 }
 
-function renameDoc(repo) {
+function renameDoc(repo: string) {
   switch (repo) {
     case 'pingcap/docs-dm':
       return 'tidb-data-migration'
@@ -183,8 +183,7 @@ export function gen(argv) {
     sig.start('Clone', repoDest, '...')
 
     execSync(
-      `git clone git@github.com:${repo}.git ${repoDest} --branch ${ref} --depth 1`,
-      { stdio: 'inherit' }
+      `git clone https://github.com/${repo}.git ${repoDest} --branch ${ref} --depth 1`
     )
   }
 
