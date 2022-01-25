@@ -4,7 +4,7 @@
   ul {
     li {
       padding-top: 0.5rem;
-      color: $primary;
+      color: $text-primary;
       font-size: $size-7;
       cursor: pointer;
       word-break: break-word;
@@ -15,16 +15,23 @@
 
       a {
         font-weight: normal;
+        color: $text-primary;
 
         &.active {
-          color: $B1;
+          color: $text-primary-hover;
           font-weight: bold;
+        }
+        &:hover {
+          color: $text-primary-hover;
         }
       }
 
       &.can-unfold {
         position: relative;
         font-weight: bold;
+        &:hover {
+          color: $text-primary-hover;
+        }
 
         > ul {
           height: 0;

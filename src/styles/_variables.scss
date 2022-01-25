@@ -1,18 +1,45 @@
+$color_text_title: #111115;
+$color_text_primary: #3d3e45;
+$color_text_primary-Interactive_hover: #97999d;
+$color_text_action_base: #ed6a45;
+
+$color_border_default: #e7e7e9;
+
+$color_background_dark: #3d3e45;
+$color_background_disabled: #f9f9fa;
+$color_background_danger_base: #eb1212;
+$color_background_success_base: #4db764;
+$un-blue600: #2066e9;
+$gray500: #b2b4b9;
+
+// $M2: #f7f8f9;
+// $F1: #2c2c2c; // title
+// $F2: #565656; // text
+// $B1: #3d3fea; // highlight
+// $B2: #00aeef;
+// $B3: #172d72;
+// $B4: #000431; // dark
+// $T1: #4fc172; // success
+// $T2: #e9eaee; // divider
+// $T6: #e30c34; // error
+
 $M1: #fff;
-$M2: #f7f8f9;
+$M2: $color_background_disabled;
 
-$F1: #2c2c2c; // title
-$F2: #565656; // text
+$F1: $color_text_title;
+$F2: $color_text_primary;
 
-$B1: #3d3fea; // highlight
-$B2: #00aeef;
-$B3: #172d72;
-$B4: #000431; // dark
+$B1: $un-blue600;
+$B2: $gray500;
+$B3: $color_text_action_base;
+$B4: $color_background_dark;
 
-$T1: #4fc172; // success
-$T2: #e9eaee; // divider
-$T6: #e30c34; // error
+$T1: $color_background_success_base; // success
+$T2: $color_border_default; // divider
+$T6: $color_background_danger_base; // error
 
+$text-primary: $F2;
+$text-primary-hover: $color_text_primary-Interactive_hover;
 $primary: $B3;
 $info: $B2;
 $success: $T1;
