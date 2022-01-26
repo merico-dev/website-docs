@@ -27,8 +27,11 @@
   }
 }
 
+.langItem {
+  color: $text-primary !important;
+}
 .langItem:hover {
-  color: $B1 !important;
+  color: $text-primary-hover !important;
 }
 
 .disabled {

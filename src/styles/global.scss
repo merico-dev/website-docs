@@ -126,4 +126,31 @@ a {
   color: $B4;
 }
 
+.navbar-end {
+  .navbar-link:not(.is-arrowless)::after {
+    border-color: $text-primary;
+  }
+  .navbar-link:not(.is-arrowless):hover::after {
+    border-color: $text-primary-hover;
+  }
+  a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-item.is-active, .navbar-link:focus, .navbar-link:focus-within, .navbar-link:hover, .navbar-link.is-active {
+    color: $text-primary-hover;
+  }
+}
+.navbar-start {
+  .navbar-item {
+    color: $color_text_action_base;
+  }
+  .navbar-item:hover:after {
+    background: $color_text_action_base !important;
+  }
+  a.navbar-item:hover, .navbar-link:hover {
+    color: $color_text_action_hover;
+  }
+  a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item.is-active, .navbar-link:focus, .navbar-link:focus-within, .navbar-link.is-active {
+    color: $color_text_action_click;
+  }
+}
+
+
 @import 'tooltip';
