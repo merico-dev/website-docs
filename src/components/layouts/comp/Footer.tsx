@@ -34,7 +34,7 @@ export function Footer() {
 
   const { FooterLogoSVG } = useStaticQuery(graphql`
     query {
-      FooterLogoSVG: file(relativePath: { eq: "pingcap-logo.svg" }) {
+      FooterLogoSVG: file(relativePath: { eq: "merico-logo.svg" }) {
         publicURL
       }
     }

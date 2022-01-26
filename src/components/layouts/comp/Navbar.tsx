@@ -31,7 +31,7 @@ import { setSearchValue } from 'state'
 export function Navbar() {
   const { BrandSVG } = useStaticQuery(graphql`
     query {
-      BrandSVG: file(relativePath: { eq: "pingcap-logo.svg" }) {
+      BrandSVG: file(relativePath: { eq: "merico-logo.svg" }) {
         publicURL
       }
     }
