@@ -48,6 +48,10 @@
     a {
       display: inline-block;
       width: 100%;
+      color: $text-primary;
+      &:hover {
+        color: $text-primary-hover;
+      }
     }
   }
 }

@@ -94,7 +94,7 @@ export function Footer() {
 
         <div className={annotations}>
           <div className={copyright}>
-            ©{new Date().getFullYear()} PingCAP. All Rights Reserved.
+            ©{new Date().getFullYear()} Merico. All Rights Reserved.
           </div>
           <a href="https://pingcap.com" target="_blank" rel="noreferrer">
             <img className={logo} src={FooterLogoSVG.publicURL} alt="PingCAP" />
