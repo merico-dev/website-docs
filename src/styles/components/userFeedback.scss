@@ -49,23 +49,35 @@
         padding-left: 2.5rem;
         width: 20px;
         height: 20px;
-        color: $B3;
         cursor: pointer;
-
+        
         &:after {
           position: absolute;
           left: 2rem;
+        }
+
+        color: $text-primary;
+        &:hover {
+          color: $text-primary-hover;
         }
       }
 
       .thumb-up {
         background: url(../../../images/thumb-up.svg) no-repeat;
         background-size: contain;
+        &:hover {
+          background: url(../../../images/thumb-up-hl.svg) no-repeat;
+          background-size: contain;
+        }
       }
 
       .thumb-down {
         background: url(../../../images/thumb-down.svg) no-repeat;
         background-size: contain;
+        &:hover {
+          background: url(../../../images/thumb-down-hl.svg) no-repeat;
+          background-size: contain;
+        }
       }
     }
 

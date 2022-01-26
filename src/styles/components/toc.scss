@@ -78,6 +78,10 @@
           background: url(images/toc/subject.svg);
           background-size: cover;
         }
+        &:not(.has-no-subject):hover:after {
+          background: url(images/toc/subject-hl.svg);
+          background-size: cover;
+        }
       }
     }
   }
