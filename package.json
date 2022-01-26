@@ -1,8 +1,7 @@
 {
   "name": "website-docs",
-  "description": "The next generation of PingCAP Docs. Powered by Gatsby.",
+  "description": "Merico docs. Forked from Pingcap, Powered by Gatsby.",
   "version": "1.0.0",
-  "author": "Yue Yang <g1enyy0ung@gmail.com> (https://g1eny0ung.site)",
   "private": true,
   "workspaces": [
     "packages/*"

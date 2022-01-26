@@ -2,11 +2,11 @@ require('ts-node').register({ transpileOnly: true })
 
 module.exports = {
   siteMetadata: {
-    title: 'PingCAP Docs',
+    title: 'Merico Docs',
     description:
       'Browse documentation about TiDB and its ecosystem, including TiDB Operator, TiDB Data Migration, Database Tools, TiUP, etc.',
-    author: '@PingCAP',
-    siteUrl: 'https://docs.pingcap.com',
+    author: '@Merico',
+    siteUrl: 'https://docs.merico.cn',
   },
   jsxRuntime: 'automatic',
   plugins: [
@@ -125,8 +125,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: 'https://docs.pingcap.com',
-        sitemap: 'https://docs.pingcap.com/sitemap.xml',
+        host: 'https://docs.merico.cn',
+        sitemap: 'https://docs.merico.cn/sitemap.xml',
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
