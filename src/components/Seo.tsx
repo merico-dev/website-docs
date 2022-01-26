@@ -27,7 +27,7 @@ export function Seo({
           author
         }
       }
-      favicon: file(relativePath: { eq: "pingcap-logo.ico" }) {
+      favicon: file(relativePath: { eq: "merico-logo-favicon.png" }) {
         publicURL
       }
     }
