@@ -29,9 +29,12 @@ import clsx from 'clsx'
 import { setSearchValue } from 'state'
 
 export function Navbar() {
-  const { BrandSVG } = useStaticQuery(graphql`
+  const logo = useStaticQuery(graphql`
     query {
-      BrandSVG: file(relativePath: { eq: "merico-logo.svg" }) {
+      zh: file(relativePath: { eq: "merico-logo-zh.svg" }) {
+        publicURL
+      },
+      en: file(relativePath: { eq: "merico-logo-en.svg" }) {
         publicURL
       }
     }
@@ -92,11 +95,11 @@ export function Navbar() {
       transparent>
       <Container>
         <NavbarBrand>
-          <NavbarItem as="a" href="https://pingcap.com" target="_blank">
+          <NavbarItem as="a" href="https://merico.cn" target="_blank">
             <img
               className={styles.logo}
-              src={BrandSVG.publicURL}
-              alt="PingCAP"
+              src={logo[locale].publicURL}
+              alt="Merico"
             />
           </NavbarItem>
 

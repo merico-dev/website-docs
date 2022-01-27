@@ -32,9 +32,12 @@ export function Footer() {
   const { locale } = useIntl()
   const [spread, setSpread] = useState<number | undefined>(undefined)
 
-  const { FooterLogoSVG } = useStaticQuery(graphql`
+  const logo = useStaticQuery(graphql`
     query {
-      FooterLogoSVG: file(relativePath: { eq: "merico-logo.svg" }) {
+      zh: file(relativePath: { eq: "merico-logo-zh.svg" }) {
+        publicURL
+      },
+      en: file(relativePath: { eq: "merico-logo-en.svg" }) {
         publicURL
       }
     }
@@ -97,7 +100,7 @@ export function Footer() {
             ©{new Date().getFullYear()} Merico. All Rights Reserved.
           </div>
           <a href="https://pingcap.com" target="_blank" rel="noreferrer">
-            <img className={logo} src={FooterLogoSVG.publicURL} alt="PingCAP" />
+            <img className={logo} src={logo[locale].publicURL} alt="Merico" />
           </a>
         </div>
       </Container>
