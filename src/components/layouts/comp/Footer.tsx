@@ -6,7 +6,7 @@ import {
   displayed,
   footer,
   items,
-  logo,
+  logo as logoClassName,
   title,
   spread as spreadStyle,
   socials,
@@ -100,7 +100,7 @@ export function Footer() {
             ©{new Date().getFullYear()} Merico. All Rights Reserved.
           </div>
           <a href="https://merico.cn" target="_blank" rel="noreferrer">
-            <img className={logo} src={logo[locale].publicURL} alt="Merico" />
+            <img className={logoClassName} src={logo[locale].publicURL} alt="Merico" />
           </a>
         </div>
       </Container>
