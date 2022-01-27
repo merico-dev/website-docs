@@ -9,6 +9,8 @@ import {
   convertVersionName,
   dm,
   dmStable,
+  ee,
+  eeStable,
   operator,
   operatorStable,
   tidb,
@@ -26,6 +28,8 @@ import { useLocation } from '@reach/router'
 
 const matchToVersionList = match => {
   switch (match) {
+    case 'ee':
+      return ee
     case 'tidb':
       return tidb
     case 'tidb-data-migration':
@@ -43,6 +47,8 @@ const matchToVersionList = match => {
 
 function replaceStableVersion(match) {
   switch (match) {
+    case 'ee':
+      return eeStable
     case 'tidb':
       return tidbStable
     case 'tidb-data-migration':

@@ -7,6 +7,7 @@
     "cannotswitchtocloud": "TiDB Cloud Chinese documentation is not available at this time"
   },
   "navbar": {
+    "ee": "Enterprise Edition",
     "tidb": "TiDB",
     "tools": "Tools",
     "cloud": "TiDB Cloud",

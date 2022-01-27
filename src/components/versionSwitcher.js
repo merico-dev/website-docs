@@ -19,6 +19,7 @@ import {
   dm,
   operator,
   tidb,
+  ee,
 } from 'lib/version'
 
 import PropTypes from 'prop-types'
@@ -39,6 +40,9 @@ const VersionSwitcher = ({
     setText(version === 'stable' ? convertVersionName(stableVersion) : version)
 
     switch (doc) {
+      case 'ee':
+        setDropdownItems(ee)
+        break
       case 'tidb':
         setDropdownItems(tidb)
         break

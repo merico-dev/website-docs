@@ -117,6 +117,13 @@ export function Navbar() {
               // @ts-ignore
               as={Link}
               className={styles.main}
+              to="/ee/dev/overview">
+              <FormattedMessage id="navbar.ee" />
+            </NavbarItem>
+            <NavbarItem
+              // @ts-ignore
+              as={Link}
+              className={styles.main}
               to="/tidb/stable">
               <FormattedMessage id="navbar.tidb" />
             </NavbarItem>

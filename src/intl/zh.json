@@ -6,6 +6,7 @@
     "cannotswitch": "本页面暂无英文版"
   },
   "navbar": {
+    "ee": "企业版",
     "tidb": "TiDB",
     "tools": "生态工具",
     "appdev": "开发指南",
