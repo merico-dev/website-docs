@@ -27,6 +27,7 @@ function renameVersion(version, stable) {
 
 function renameVersionByDoc(doc, version) {
   switch (doc) {
+    case 'ee':
     case 'tidb':
     case 'tidb-data-migration':
     case 'tidb-in-kubernetes':

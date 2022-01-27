@@ -37,17 +37,6 @@ function genOptions(repo: string, config, dryRun: boolean) {
   return options
 }
 
-function renameDoc(repo: string) {
-  switch (repo) {
-    case 'pingcap/docs-dm':
-      return 'tidb-data-migration'
-    case 'pingcap/docs-tidb-operator':
-      return 'tidb-in-kubernetes'
-    case 'pingcap/docs-appdev':
-      return 'appdev'
-  }
-}
-
 export function download(argv) {
   const { repo, path, ref, destination, config, dryRun } = argv
   const dest = nPath.resolve(destination)
@@ -74,19 +63,8 @@ export function download(argv) {
       )
 
       break
-    case 'pingcap/docs-dm':
-    case 'pingcap/docs-tidb-operator':
-    case 'pingcap/docs-appdev':
-      if (!path) {
-        sig.warn(
-          'For docs-dm/docs-tidb-operator/docs-appdev, you must provide en or zh path.'
-        )
-
-        return
-      }
-
-      const name = renameDoc(repo)
-
+    case 'merico-dev/docs-en':
+    case 'merico-dev/docs-cn':
       retrieveAllMDs(
         {
           repo,
@@ -96,20 +74,11 @@ export function download(argv) {
         genDest(
           repo,
           path,
-          nPath.resolve(dest, `${path.split('/')[0]}/${name}/${ref}`)
+          nPath.resolve(
+            dest,
+            `${repo.endsWith('-cn') ? 'zh' : 'en'}/ee/${ref}`
+          )
         ),
-        options
-      )
-
-      break
-    case 'tidbcloud/dbaas-docs':
-      retrieveAllMDs(
-        {
-          repo,
-          path,
-          ref,
-        },
-        genDest(repo, path, nPath.resolve(dest, `en/tidbcloud/${ref}`)),
         options
       )
 
@@ -142,11 +111,8 @@ export function sync(argv) {
       )
 
       break
-    case 'pingcap/docs-dm':
-    case 'pingcap/docs-tidb-operator':
-    case 'pingcap/docs-appdev':
-      const name = renameDoc(repo)
-
+    case 'merico-dev/docs-en':
+    case 'merico-dev/docs-cn':
       handleSync(
         {
           repo,
@@ -154,20 +120,10 @@ export function sync(argv) {
           base,
           head,
         },
-        nPath.resolve(dest, `en/${name}/${ref}`), // use en as a placeholder
-        options
-      )
-
-      break
-    case 'tidbcloud/dbaas-docs':
-      handleSync(
-        {
-          repo,
-          ref,
-          base,
-          head,
-        },
-        nPath.resolve(dest, `en/tidbcloud/${ref}`),
+        nPath.resolve(
+          dest,
+          `${repo.endsWith('-cn') ? 'zh' : 'en'}/ee/${ref}`
+        ),
         options
       )
 

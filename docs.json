@@ -1,5 +1,23 @@
 {
   "docs": {
+    "ee": {
+      "stable": "master",
+      "languages": {
+        "en": {
+          "repo": "merico-dev/docs-en",
+          "versions": [
+            "master"
+          ]
+        },
+        "zh": {
+          "repo": "merico-dev/docs-cn",
+          "versions": [
+            "master"
+          ]
+        }
+      },
+      "deprecated": ["v3.0"]
+    },
     "tidb": {
       "stable": "release-5.3",
       "languages": {

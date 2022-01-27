@@ -1,0 +1,1 @@
+yarn download:ee:zh
