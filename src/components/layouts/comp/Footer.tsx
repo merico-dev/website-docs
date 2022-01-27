@@ -99,7 +99,7 @@ export function Footer() {
           <div className={copyright}>
             ©{new Date().getFullYear()} Merico. All Rights Reserved.
           </div>
-          <a href="https://pingcap.com" target="_blank" rel="noreferrer">
+          <a href="https://merico.cn" target="_blank" rel="noreferrer">
             <img className={logo} src={logo[locale].publicURL} alt="Merico" />
           </a>
         </div>

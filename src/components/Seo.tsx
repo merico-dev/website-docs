@@ -57,7 +57,7 @@ export function Seo({
         },
         {
           property: 'og:image',
-          content: 'https://download.pingcap.com/images/pingcap-opengraph.jpg',
+          content: 'https://docs.merico.cn/images/merico-logo-favicon.png',
         },
         {
           property: 'og:image:width',

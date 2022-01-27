@@ -23,7 +23,8 @@ function _getCookie(cname) {
 }
 
 function _reportLog(logType, params) {
-  var eventUrl = 'https://accounts.pingcap.com/_analytics/event?'
+  // var eventUrl = 'https://accounts.pingcap.com/_analytics/event?'
+  var eventUrl = 'https://analytics.merico.cn/event?'
   var uid = _getCookie('uid')
 
   if (uid) {
