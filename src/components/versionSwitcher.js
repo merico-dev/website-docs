@@ -12,15 +12,7 @@ import {
 } from '@seagreenio/react-bulma'
 import { Link, useIntl } from 'gatsby-plugin-react-intl'
 import React, { Fragment, useEffect, useState } from 'react'
-import {
-  appdev,
-  cloud,
-  convertVersionName,
-  dm,
-  operator,
-  tidb,
-  ee,
-} from 'lib/version'
+import { convertVersionName, tidb, ee } from 'lib/version'
 
 import PropTypes from 'prop-types'
 
