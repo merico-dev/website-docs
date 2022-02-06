@@ -3,19 +3,7 @@ import '../styles/pages/search.scss'
 import { Block, Button } from '@seagreenio/react-bulma'
 import { FormattedMessage, useIntl } from 'gatsby-plugin-react-intl'
 import React, { useEffect, useState } from 'react'
-import {
-  appdev,
-  cloud,
-  convertVersionName,
-  dm,
-  dmStable,
-  ee,
-  eeStable,
-  operator,
-  operatorStable,
-  tidb,
-  tidbStable,
-} from 'lib/version'
+import { convertVersionName, ee, eeStable, tidb, tidbStable } from 'lib/version'
 import { defaultDocInfo, setLoading, setSearchValue } from '../state'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -32,14 +20,6 @@ const matchToVersionList = match => {
       return ee
     case 'tidb':
       return tidb
-    case 'tidb-data-migration':
-      return dm
-    case 'tidb-in-kubernetes':
-      return operator
-    case 'tidbcloud':
-      return cloud
-    case 'appdev':
-      return appdev
     default:
       return tidb
   }
@@ -51,10 +31,6 @@ function replaceStableVersion(match) {
       return eeStable
     case 'tidb':
       return tidbStable
-    case 'tidb-data-migration':
-      return dmStable
-    case 'tidb-in-kubernetes':
-      return operatorStable
     default:
       break
   }
@@ -101,14 +77,6 @@ const Search = () => {
         name: 'TiDB',
         match: 'tidb',
       },
-      {
-        name: 'TiDB in Kubernetes',
-        match: 'tidb-in-kubernetes',
-      },
-      {
-        name: 'TiDB Data Migration (DM)',
-        match: 'tidb-data-migration',
-      },
     ]
 
     const getDocsTypesByLang = () => {
@@ -121,17 +89,6 @@ const Search = () => {
 
           break
         default:
-          types.push(
-            {
-              name: 'Cloud',
-              match: 'tidbcloud',
-            },
-            {
-              name: 'App Dev',
-              match: 'appdev',
-            }
-          )
-
           break
       }
 

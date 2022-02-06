@@ -46,18 +46,6 @@ const VersionSwitcher = ({
       case 'tidb':
         setDropdownItems(tidb)
         break
-      case 'tidb-data-migration':
-        setDropdownItems(dm)
-        break
-      case 'tidb-in-kubernetes':
-        setDropdownItems(operator)
-        break
-      case 'tidbcloud':
-        setDropdownItems(cloud)
-        break
-      case 'appdev':
-        setDropdownItems(appdev)
-        break
       default:
         break
     }

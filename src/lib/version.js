@@ -24,8 +24,6 @@ export function convertVersionName(version, stable) {
 
 export const eeStable = docs['ee']['stable']
 export const tidbStable = docs['tidb']['stable']
-export const dmStable = docs['tidb-data-migration']['stable']
-export const operatorStable = docs['tidb-in-kubernetes']['stable']
 
 export const ee = docs['ee']['languages']['en']['versions'].map(d =>
   convertVersionName(d, eeStable)
@@ -33,19 +31,8 @@ export const ee = docs['ee']['languages']['en']['versions'].map(d =>
 export const tidb = docs['tidb']['languages']['en']['versions'].map(d =>
   convertVersionName(d, tidbStable)
 )
-export const dm = docs['tidb-data-migration']['languages']['en'][
-  'versions'
-].map(d => convertVersionName(d, dmStable))
-export const operator = docs['tidb-in-kubernetes']['languages']['en'][
-  'versions'
-].map(d => convertVersionName(d, operatorStable))
-export const cloud = ['public-preview']
-export const appdev =
-  docs['appdev']['languages']['en']['versions'].map(convertVersionName)
 
 export const deprecated = {
   ee: docs['ee']['deprecated'],
   tidb: docs['tidb']['deprecated'],
-  'tidb-data-migration': docs['tidb-data-migration']['deprecated'],
-  'tidb-in-kubernetes': docs['tidb-in-kubernetes']['deprecated'],
 }

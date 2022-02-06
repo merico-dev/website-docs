@@ -1,10 +1,10 @@
 export const toolsData = [
-  {
-    type: 'tools.tidbOperator.type',
-    icon: 'tidbOperator',
-    desc: 'tools.tidbOperator.desc',
-    link: '/tidb-in-kubernetes/stable',
-  },
+  // {
+  //   type: 'tools.tidbOperator.type',
+  //   icon: 'tidbOperator',
+  //   desc: 'tools.tidbOperator.desc',
+  //   link: '/tidb-in-kubernetes/stable',
+  // },
   {
     type: 'tools.tidbDataMigration.type',
     icon: 'dm',
