@@ -79,7 +79,6 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest --coverage --roots src",
-    "download:ee:zh": "pingcap-docs-download dl merico-dev/docs-cn",
     "download:ee:zh:all": "./scripts/download-ee-zh.sh",
     "download:tidb:en": "pingcap-docs-download dl pingcap/docs",
     "download:tidb:en:all": "./scripts/download-tidb-en.sh",
