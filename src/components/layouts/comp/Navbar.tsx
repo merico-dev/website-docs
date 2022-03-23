@@ -28,6 +28,58 @@ import { SearchInput } from '../../search/Input'
 import clsx from 'clsx'
 import { setSearchValue } from 'state'
 
+function LanguageStuff() {
+  const { locale } = useIntl()
+
+  const { docInfo, langSwitchable } = useSelector(
+    state => state
+  ) as any
+
+  const enDisabled = !langSwitchable && locale === 'zh'
+  const zhDisabled = !langSwitchable && locale === 'en'
+  return (
+    <NavbarItem as="div" dropdown hoverable>
+      <NavbarLink className={styles.langSwitch}>
+        <FormattedMessage id="lang.title" />
+      </NavbarLink>
+
+      <NavbarDropdown boxed>
+        <NavbarItem
+          className={clsx(
+            styles.langItem,
+            enDisabled && styles.disabled
+          )}
+          onClick={() => !enDisabled && changeLocale('en')}>
+          {enDisabled ? (
+            <FormattedMessage id="lang.cannotswitch" />
+          ) : (
+            <FormattedMessage id="lang.en" />
+          )}
+        </NavbarItem>
+
+        <NavbarItem
+          className={clsx(
+            styles.langItem,
+            zhDisabled && styles.disabled
+          )}
+          onClick={() => !zhDisabled && changeLocale('zh')}>
+          {zhDisabled ? (
+            <FormattedMessage
+              id={
+                docInfo.type === 'tidbcloud'
+                  ? 'lang.cannotswitchtocloud'
+                  : 'lang.cannotswitch'
+              }
+            />
+          ) : (
+            <FormattedMessage id="lang.zh" />
+          )}
+        </NavbarItem>
+      </NavbarDropdown>
+    </NavbarItem>
+  )
+}
+
 export function Navbar() {
   const logo = useStaticQuery(graphql`
     query {
@@ -44,12 +96,9 @@ export function Navbar() {
   const { locale } = intl
 
   const dispatch = useDispatch()
-  const { docInfo, langSwitchable, searchValue } = useSelector(
+  const { docInfo, searchValue } = useSelector(
     state => state
   ) as any
-
-  const enDisabled = !langSwitchable && locale === 'zh'
-  const zhDisabled = !langSwitchable && locale === 'en'
 
   const [showBorder, setShowBorder] = useState(false)
   const [burgerActive, setBurgerActive] = useState(false)
@@ -118,102 +167,29 @@ export function Navbar() {
               as={Link}
               className={styles.main}
               to="/ee/dev/overview">
-              <FormattedMessage id="navbar.ee" />
+              <FormattedMessage id="navbar.docs" />
             </NavbarItem>
-            <NavbarItem
-              // @ts-ignore
-              as={Link}
-              className={styles.main}
-              to="/tidb/stable">
-              <FormattedMessage id="navbar.tidb" />
+            <NavbarItem as="a" href="#" target="_blank" className={styles.main}>
+              <FormattedMessage id="navbar.blog" />
             </NavbarItem>
-            {/* <NavbarItem as={Link} className={styles.main} to="/tools">
-              <FormattedMessage id="navbar.tools" />
-            </NavbarItem> */}
-            {locale === 'en' && (
-              <NavbarItem
-                // @ts-ignore
-                as={Link}
-                className={styles.main}
-                to="/tidbcloud/public-preview">
-                <FormattedMessage id="navbar.cloud" />
-              </NavbarItem>
-            )}
-            <NavbarItem
-              // @ts-ignore
-              as={Link}
-              className={styles.main}
-              to="/appdev/dev">
-              <FormattedMessage id="navbar.appdev" />
+            <NavbarItem as="a" href="#" target="_blank" className={styles.main}>
+              <FormattedMessage id="navbar.freeTrial" />
             </NavbarItem>
-            <NavbarItem
-              className={styles.main}
-              href={
-                locale === 'en'
-                  ? 'https://en.pingcap.com/download'
-                  : 'https://pingcap.com/zh/product#SelectProduct'
-              }>
-              <FormattedMessage id="navbar.download" />
-            </NavbarItem>
-            <NavbarItem
-              className={styles.main}
-              href={
-                locale === 'en'
-                  ? 'https://en.pingcap.com/contact-us/'
-                  : 'https://pingcap.com/zh/contact/'
-              }>
+            <NavbarItem as="a" href="#" target="_blank" className={styles.main}>
               <FormattedMessage id="navbar.contactUs" />
             </NavbarItem>
           </NavbarStart>
 
           <NavbarEnd>
-            <NavbarItem as="div" dropdown hoverable>
-              <NavbarLink className={styles.langSwitch}>
-                <FormattedMessage id="lang.title" />
-              </NavbarLink>
+            {/* <LanguageStuff /> */}
 
-              <NavbarDropdown boxed>
-                <NavbarItem
-                  className={clsx(
-                    styles.langItem,
-                    enDisabled && styles.disabled
-                  )}
-                  onClick={() => !enDisabled && changeLocale('en')}>
-                  {enDisabled ? (
-                    <FormattedMessage id="lang.cannotswitch" />
-                  ) : (
-                    <FormattedMessage id="lang.en" />
-                  )}
-                </NavbarItem>
-
-                <NavbarItem
-                  className={clsx(
-                    styles.langItem,
-                    zhDisabled && styles.disabled
-                  )}
-                  onClick={() => !zhDisabled && changeLocale('zh')}>
-                  {zhDisabled ? (
-                    <FormattedMessage
-                      id={
-                        docInfo.type === 'tidbcloud'
-                          ? 'lang.cannotswitchtocloud'
-                          : 'lang.cannotswitch'
-                      }
-                    />
-                  ) : (
-                    <FormattedMessage id="lang.zh" />
-                  )}
-                </NavbarItem>
-              </NavbarDropdown>
-            </NavbarItem>
-
-            <NavbarItem as="div" className="search-input">
+            {/* <NavbarItem as="div" className="search-input">
               <SearchInput
                 docInfo={docInfo}
                 searchValue={searchValue}
                 setSearchValue={handleSetSearchValue}
               />
-            </NavbarItem>
+            </NavbarItem> */}
           </NavbarEnd>
         </NavbarMenu>
       </Container>

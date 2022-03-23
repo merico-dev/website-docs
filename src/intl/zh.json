@@ -7,10 +7,9 @@
   },
   "navbar": {
     "ee": "企业版",
-    "tidb": "TiDB",
-    "tools": "生态工具",
-    "appdev": "开发指南",
-    "download": "免费试用",
+    "docs": "文档",
+    "blog": "博客",
+    "freeTrial": "免费试用",
     "contactUs": "联系我们",
     "searchDocs": "搜索文档"
   },

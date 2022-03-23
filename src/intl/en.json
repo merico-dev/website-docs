@@ -7,14 +7,12 @@
     "cannotswitchtocloud": "TiDB Cloud Chinese documentation is not available at this time"
   },
   "navbar": {
-    "ee": "Enterprise Edition",
-    "tidb": "TiDB",
-    "tools": "Tools",
-    "cloud": "TiDB Cloud",
-    "appdev": "App Dev",
-    "download": "Get TiDB",
+    "ee": "Enterprise",
+    "docs": "Docs",
+    "blog": "Blog",
+    "freeTrial": "Free Trial",
     "contactUs": "Contact Us",
-    "searchDocs": "Search Docs"
+    "searchDocs": "搜索文档"
   },
   "doc": {
     "notExist": "This doc does not exist",
