@@ -48,6 +48,7 @@
     "react-hubspot-form": "^1.3.7",
     "react-icons": "^4.3.1",
     "react-redux": "^7.2.6",
+    "react-tooltip": "4.2.21",
     "redux": "^4.1.2"
   },
   "devDependencies": {
@@ -79,6 +80,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest --coverage --roots src",
+    "download:ee:zh": "pingcap-docs-download dl merico-dev/docs-cn",
     "download:ee:zh:all": "./scripts/download-ee-zh.sh",
     "download:tidb:en": "pingcap-docs-download dl pingcap/docs",
     "download:tidb:en:all": "./scripts/download-tidb-en.sh",

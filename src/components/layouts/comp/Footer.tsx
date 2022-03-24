@@ -25,7 +25,7 @@ import { useState } from 'react'
 import { en, zh } from 'data/footer'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import Socials from '../../socials'
+import Socials from './socials'
 import clsx from 'clsx'
 
 export function Footer() {

@@ -147,13 +147,11 @@ const Doc = ({
             <MDXRenderer>{mdx.body}</MDXRenderer>
           </MDXProvider>
 
-          {doc !== 'tidbcloud' && (
-            <GitCommitInfo
-              repoInfo={repoInfo}
-              lang={lang}
-              title={frontmatter.title}
-            />
-          )}
+          {/* <GitCommitInfo
+            repoInfo={repoInfo}
+            lang={lang}
+            title={frontmatter.title}
+          /> */}
         </div>
       </Column>
 

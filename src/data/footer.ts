@@ -96,8 +96,8 @@ export const zh = [
         url: '#',
       },
       {
-        name: '播客',
-        url: '#',
+        name: '博客',
+        url: 'https://www.merico.cn/blog',
       },
     ],
   },

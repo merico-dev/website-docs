@@ -89,7 +89,7 @@ $family-primary: $family-custom;
   cursor: pointer;
 }
 $socials: twitter linkedin facebook reddit slack youtube yc github slack
-  stackOverflow asktug;
+  stackOverflow asktug zhihu csdn baijiahao sohu bilibili devlake devstream wechat;
 @each $social in $socials {
   .#{$social} {
     background-image: url(images/socials/#{$social}.svg);
