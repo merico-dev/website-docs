@@ -169,7 +169,7 @@ export function Navbar() {
               to="/ee/dev/overview">
               <FormattedMessage id="navbar.docs" />
             </NavbarItem>
-            <NavbarItem as="a" href="#" target="_blank" className={styles.main}>
+            <NavbarItem as="a" href="#" target="https://www.merico.cn/blog" className={styles.main}>
               <FormattedMessage id="navbar.blog" />
             </NavbarItem>
             <NavbarItem as="a" href="#" target="_blank" className={styles.main}>
