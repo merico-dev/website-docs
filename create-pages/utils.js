@@ -61,7 +61,7 @@ exports.genPDFDownloadURL = function (slug, lang) {
  */
 exports.replacePath = function (slug, name, lang, pathWithoutVersion) {
   const docPath = genDocCategory(slug)
-  lang = lang === 'en' ? '' : '/' + lang
+  lang = lang === 'zh' ? '' : '/' + lang
 
   if (name === '_index') {
     return `${lang}/${docPath}`

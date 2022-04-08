@@ -92,11 +92,11 @@ const UserFeedback = ({ title, locale }) => {
                 formId={`${
                   showYesFollowUp === 'show'
                     ? locale === 'en'
-                      ? 'c955b3db-740a-4f96-9d2b-011e2cd80ad6'
-                      : 'caf4026d-e3a0-4285-8f80-fcdee324f50d'
+                      ? 'FEEDBACK_FORM_ID_FOLLOW_EN'
+                      : 'FEEDBACK_FORM_ID_FOLLOW_ZH'
                     : locale === 'en'
-                    ? '3c501775-c64d-4a9e-898b-7efef630bbf4'
-                    : '4bf44ac7-4104-4eca-a57c-4dd9e5cc87b9'
+                    ? 'FEEDBACK_FORM_ID_NOFOLLOW_EN'
+                    : 'FEEDBACK_FORM_ID_NOFOLLOW_ZH'
                 }`}
                 loading={<Loading wholeScreen={false} />}
               />
