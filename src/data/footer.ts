@@ -13,7 +13,7 @@ export const en = [
     items: [
       {
         name: '快速上手',
-        url: '#',
+        url: '/ee/dev/overview',
       },
       {
         name: '常见问题解答',
@@ -21,7 +21,7 @@ export const en = [
       },
       {
         name: '版本发布',
-        url: '#',
+        url: '/ee/dev/release_v3.12.0',
       },
     ],
   },
@@ -30,11 +30,11 @@ export const en = [
     items: [
       {
         name: '客户案例',
-        url: '#',
+        url: 'https://www.merico.cn/customer-case-hexun',
       },
       {
         name: '视频课程',
-        url: '#',
+        url: 'https://appnjqbwmhc5184.h5.xiaoeknow.com/',
       },
       {
         name: '博客',
@@ -51,7 +51,7 @@ export const en = [
       },
       {
         name: '联系我们',
-        url: '#',
+        url: 'https://www.merico.cn/contact-us',
       },
     ],
   },
@@ -72,7 +72,7 @@ export const zh = [
     items: [
       {
         name: '快速上手',
-        url: '#',
+        url: '/ee/dev/overview',
       },
       {
         name: '常见问题解答',
@@ -80,7 +80,7 @@ export const zh = [
       },
       {
         name: '版本发布',
-        url: '#',
+        url: '/ee/dev/release_v3.12.0',
       },
     ],
   },
@@ -89,11 +89,11 @@ export const zh = [
     items: [
       {
         name: '客户案例',
-        url: '#',
+        url: 'https://www.merico.cn/customer-case-hexun',
       },
       {
         name: '视频课程',
-        url: '#',
+        url: 'https://appnjqbwmhc5184.h5.xiaoeknow.com/',
       },
       {
         name: '博客',
@@ -110,7 +110,7 @@ export const zh = [
       },
       {
         name: '联系我们',
-        url: '#',
+        url: 'https://www.merico.cn/contact-us',
       },
     ],
   },
