@@ -80,7 +80,7 @@ export const zh = [
       },
       {
         name: '版本发布',
-        url: '/ee/dev/release_v3.12.0',
+        url: '/ee/dev/release_notes/latest',
       },
     ],
   },
