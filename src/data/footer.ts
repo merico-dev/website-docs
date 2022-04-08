@@ -13,15 +13,15 @@ export const en = [
     items: [
       {
         name: '快速上手',
-        url: '/ee/dev/overview',
+        url: '/ee/quick_start/overview',
       },
       {
         name: '常见问题解答',
-        url: '#',
+        url: '/ee/faq2022',
       },
       {
         name: '版本发布',
-        url: '/ee/dev/release_v3.12.0',
+        url: '/ee/release_notes/latest',
       },
     ],
   },
