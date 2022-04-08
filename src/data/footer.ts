@@ -13,15 +13,15 @@ export const en = [
     items: [
       {
         name: '快速上手',
-        url: '/ee/quick_start/overview',
+        url: '/quick_start/overview',
       },
       {
         name: '常见问题解答',
-        url: '/ee/faq2022',
+        url: '/faq2022',
       },
       {
         name: '版本发布',
-        url: '/ee/release_notes/latest',
+        url: '/release_notes/latest',
       },
     ],
   },
@@ -72,15 +72,15 @@ export const zh = [
     items: [
       {
         name: '快速上手',
-        url: '/ee/dev/overview',
+        url: '/quick_start/overview',
       },
       {
         name: '常见问题解答',
-        url: '#',
+        url: '/faq2022',
       },
       {
         name: '版本发布',
-        url: '/ee/dev/release_notes/latest',
+        url: '/release_notes/latest',
       },
     ],
   },

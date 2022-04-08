@@ -149,6 +149,7 @@ const createDocs = async ({ graphql, createPage, createRedirect }) => {
           fromPath,
           toPath: path,
           isPermanent: true,
+          redirectInBrowser: true,
         })
       })
     }
