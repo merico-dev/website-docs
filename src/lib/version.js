@@ -25,7 +25,7 @@ export function convertVersionName(version, stable) {
 export const eeStable = docs['ee']['stable']
 export const tidbStable = docs['tidb']['stable']
 
-export const ee = docs['ee']['languages']['en']['versions'].map(d =>
+export const ee = docs['ee']['languages']['zh']['versions'].map(d =>
   convertVersionName(d, eeStable)
 )
 export const tidb = docs['tidb']['languages']['en']['versions'].map(d =>

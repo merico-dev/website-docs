@@ -30,7 +30,7 @@ export const setDocData = docData => ({
 })
 
 export const defaultDocInfo = {
-  lang: 'en',
+  lang: 'zh',
   type: 'tidb',
   version: 'stable',
 }

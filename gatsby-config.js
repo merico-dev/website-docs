@@ -29,7 +29,7 @@ module.exports = {
       options: {
         path: `${__dirname}/src/intl`,
         languages: ['en', 'zh'],
-        defaultLanguage: 'en',
+        defaultLanguage: 'zh',
         redirectDefaultLanguageToRoot: true,
       },
     },

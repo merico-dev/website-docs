@@ -127,8 +127,8 @@ const createDocs = async ({ graphql, createPage, createRedirect }) => {
         intl: {
           language: lang,
           messages: messages[lang],
-          routed: lang !== 'en',
-          defaultLanguage: 'en',
+          routed: lang !== 'zh',
+          defaultLanguage: 'zh',
           redirectDefaultLanguageToRoot: true,
           ignoredPaths: [],
         },
