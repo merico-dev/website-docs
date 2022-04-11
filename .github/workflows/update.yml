@@ -126,20 +126,35 @@ jobs:
           yarn build --verbose
           mv public/sitemap/sitemap-0.xml public/sitemap.xml
 
-      - name: Public Deploy to HK
-        if: ${{ !env.ACT && github.repository_owner == 'merico-dev' }}
+      - name: Public Deploy to HK-staging
+        if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
         run: |
           rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' public/ "root@${{ secrets.HK_HOST }}:/root/website-docs/public"
 
-      - name: Markdown Deploy to HK
-        if: ${{ !env.ACT && github.repository_owner == 'merico-dev' }}
+      - name: Markdown Deploy to HK-staging
+        if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
         run: |
           rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' markdown-pages/ "root@${{ secrets.HK_HOST }}:/root/website-docs/markdown-pages"
 
-      - name: Restart Service on HK
-        if: ${{ !env.ACT && github.repository_owner == 'merico-dev' }}
+      - name: Restart Service on HK-staging
+        if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
         run: |
           ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "service website-docs restart"
+
+      - name: Public Deploy to HK-prod
+        if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'prod' }}
+        run: |
+          rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' public/ "root@${{ secrets.HK_HOST }}:/root/website-docs-prod/public"
+
+      - name: Markdown Deploy to HK-prod
+        if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'prod' }}
+        run: |
+          rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' markdown-pages/ "root@${{ secrets.HK_HOST }}:/root/website-docs-prod/markdown-pages"
+
+      - name: Restart Service on HK-prod
+        if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'prod' }}
+        run: |
+          ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "service website-docs-prod restart"
 
       - name: Update current commit sha to cache
         if: github.event.client_payload.download_type != 'full'
