@@ -31,7 +31,7 @@ export const setDocData = docData => ({
 
 export const defaultDocInfo = {
   lang: 'zh',
-  type: 'tidb',
+  type: 'ee',
   version: 'stable',
 }
 

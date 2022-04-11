@@ -12,7 +12,7 @@ import {
 } from '@seagreenio/react-bulma'
 import { Link, useIntl } from 'gatsby-plugin-react-intl'
 import React, { Fragment, useEffect, useState } from 'react'
-import { convertVersionName, tidb, ee } from 'lib/version'
+import { convertVersionName, ee } from 'lib/version'
 
 import PropTypes from 'prop-types'
 
@@ -34,9 +34,6 @@ const VersionSwitcher = ({
     switch (doc) {
       case 'ee':
         setDropdownItems(ee)
-        break
-      case 'tidb':
-        setDropdownItems(tidb)
         break
       default:
         break

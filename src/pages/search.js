@@ -3,7 +3,7 @@ import '../styles/pages/search.scss'
 import { Block, Button } from '@seagreenio/react-bulma'
 import { FormattedMessage, useIntl } from 'gatsby-plugin-react-intl'
 import React, { useEffect, useState } from 'react'
-import { convertVersionName, ee, eeStable, tidb, tidbStable } from 'lib/version'
+import { convertVersionName, ee, eeStable } from 'lib/version'
 import { defaultDocInfo, setLoading, setSearchValue } from '../state'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -18,10 +18,8 @@ const matchToVersionList = match => {
   switch (match) {
     case 'ee':
       return ee
-    case 'tidb':
-      return tidb
     default:
-      return tidb
+      return ee
   }
 }
 
@@ -29,8 +27,6 @@ function replaceStableVersion(match) {
   switch (match) {
     case 'ee':
       return eeStable
-    case 'tidb':
-      return tidbStable
     default:
       break
   }
@@ -74,28 +70,12 @@ const Search = () => {
   useEffect(() => {
     const types = [
       {
-        name: 'TiDB',
-        match: 'tidb',
+        name: '企业版',
+        match: 'ee',
       },
     ]
 
-    const getDocsTypesByLang = () => {
-      switch (locale) {
-        case 'zh':
-          types.push({
-            name: '开发指南',
-            match: 'appdev',
-          })
-
-          break
-        default:
-          break
-      }
-
-      return types
-    }
-
-    setDocsTypesByLang(getDocsTypesByLang())
+    setDocsTypesByLang(types)
   }, [intl, locale])
 
   const handleSetVersionList = match => () => {
