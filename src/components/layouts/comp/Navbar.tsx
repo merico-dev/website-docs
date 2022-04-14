@@ -166,7 +166,7 @@ export function Navbar() {
               // @ts-ignore
               as={Link}
               className={styles.main}
-              to="/ee/dev/overview">
+              to="/">
               <FormattedMessage id="navbar.docs" />
             </NavbarItem>
             <NavbarItem as="a" href="https://www.merico.cn/blog" target="_blank" className={styles.main}>
