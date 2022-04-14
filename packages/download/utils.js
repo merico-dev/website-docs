@@ -5,7 +5,7 @@ import fs from 'fs'
 import path from 'path'
 import sig from 'signale'
 
-const IMAGE_CDN_PREFIX = 'https://download.pingcap.com/images'
+const IMAGE_CDN_PREFIX = 'https://merico.cn/images'
 export const imageCDNs = {
   docs: IMAGE_CDN_PREFIX + '/docs',
   'docs-cn': IMAGE_CDN_PREFIX + '/docs-cn',
