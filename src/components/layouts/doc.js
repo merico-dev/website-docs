@@ -21,14 +21,14 @@ const Layout = ({
         <Columns>
           <div className="column is-one-fifth">
             <div className="left-aside">
-              <Block>
+              {/* <Block>
                 <VersionSwitcher
                   name={name}
                   docVersionStable={docVersionStableMap}
                   pathWithoutVersion={pathWithoutVersion}
                   versions={versions}
                 />
-              </Block>
+              </Block> */}
               {toc && (
                 <Toc
                   data={toc}
