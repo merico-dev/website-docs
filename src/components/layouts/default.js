@@ -18,13 +18,13 @@ const Layout = ({ children }) => {
   }, [])
 
   return (
-    <>
+    <div className="layout-root">
       <Navbar />
       <Section as="main">
         <Container>{children}</Container>
       </Section>
       <Footer />
-    </>
+    </div>
   )
 }
 

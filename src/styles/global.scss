@@ -154,3 +154,14 @@ a {
 
 
 @import 'tooltip';
+
+.layout-root {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  min-height: calc(100vh - $navbar-height);
+
+  > main.section {
+    flex: 1 0;
+  }
+}
