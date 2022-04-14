@@ -94,9 +94,14 @@ export async function writeContent(download_url, destPath, pipelines = []) {
     fs.mkdirSync(dir, { recursive: true })
   }
 
-  const readableStream = stream.Readable.from(
-    (await http.get(download_url)).data
-  )
+  const res = await http.get(download_url)
+  let data = res.data
+  const filePath = res.request.path
+
+  if (filePath?.endsWith('.json')) {
+    data = JSON.stringify(data)
+  }
+  const readableStream = stream.Readable.from(data)
   const writeStream = fs.createWriteStream(destPath)
   writeStream.on('close', () => sig.success('Downloaded:', download_url))
 
