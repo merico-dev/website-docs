@@ -177,7 +177,7 @@ const Doc = ({
         </div>
       </Column>
 
-      <UserFeedback title={frontmatter.title} lang={lang} />
+      {/* <UserFeedback title={frontmatter.title} lang={lang} /> */}
     </>
   )
 }
