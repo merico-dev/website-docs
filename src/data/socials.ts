@@ -60,6 +60,6 @@ export const zh = [
   },
   {
     name: 'devstream',
-    href: 'https://youtube.com/channel/UCuq4puT32DzHKT5rU1IZpIA',
+    href: 'https://github.com/merico-dev/stream',
   },
 ]
