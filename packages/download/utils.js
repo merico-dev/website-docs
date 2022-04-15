@@ -95,13 +95,7 @@ export async function writeContent(download_url, destPath, pipelines = []) {
   }
 
   const res = await http.get(download_url)
-  let data = res.data
-  const filePath = res.request.path
-
-  if (filePath?.endsWith('.json')) {
-    data = JSON.stringify(data)
-  }
-  const readableStream = stream.Readable.from(data)
+  const readableStream = stream.Readable.from(res.data)
   const writeStream = fs.createWriteStream(destPath)
   writeStream.on('close', () => sig.success('Downloaded:', download_url))
 

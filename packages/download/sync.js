@@ -20,9 +20,13 @@ export async function handleSync(metaInfo, destDir, options) {
   const { repo, base, head } = metaInfo
   const { ignore = [], pipelines = [], dryRun } = options
 
+  const ignoredExts = ['.pdf', '.json']
   let files
   try {
     files = (await compare(repo, base, head)).data.files
+    files = files.filter(file => {
+      return ignoredExts.every(ext => !file.filename.endsWith(ext))
+    })
   } catch (err) {
     throw err
   }
