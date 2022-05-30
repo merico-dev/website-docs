@@ -10,13 +10,13 @@ module.exports = {
   },
   jsxRuntime: 'automatic',
   plugins: [
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: 'UA-99991864-7',
-        head: true,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: 'UA-00000000-0',
+    //     head: true,
+    //   },
+    // },
     `gatsby-plugin-root-import`,
     {
       resolve: `gatsby-plugin-layout`,
