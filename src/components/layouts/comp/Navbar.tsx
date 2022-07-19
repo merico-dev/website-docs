@@ -64,13 +64,7 @@ function LanguageStuff() {
           )}
           onClick={() => !zhDisabled && changeLocale('zh')}>
           {zhDisabled ? (
-            <FormattedMessage
-              id={
-                docInfo.type === 'tidbcloud'
-                  ? 'lang.cannotswitchtocloud'
-                  : 'lang.cannotswitch'
-              }
-            />
+            <FormattedMessage id='lang.cannotswitch' />
           ) : (
             <FormattedMessage id="lang.zh" />
           )}

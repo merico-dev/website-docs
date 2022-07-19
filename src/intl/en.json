@@ -3,8 +3,7 @@
     "title": "Language",
     "en": "English",
     "zh": "简体中文",
-    "cannotswitch": "This page is not available in Chinese",
-    "cannotswitchtocloud": "TiDB Cloud Chinese documentation is not available at this time"
+    "cannotswitch": "This page is not available in Chinese"
   },
   "navbar": {
     "ee": "Enterprise",
@@ -21,13 +20,7 @@
     "improve": "Edit this page",
     "feedback": "Request docs changes",
     "latestCommit": "was last updated",
-    "deprecation": {
-      "tidb": {
-        "firstContext": "You are viewing the documentation of an older version of the TiDB database (TiDB { curDocVersion }).",
-        "secondContext": "It is recommended that you use { link } of the TiDB database. ",
-        "link": "the latest stable version"
-      }
-    }
+    "deprecation": {}
   },
   "shortcodes": {
     "note": "Note",
@@ -51,22 +44,6 @@
     }
   },
   "tools": {
-    "tidbOperator": {
-      "type": "TiDB Operator",
-      "desc": "TiDB Operator is an automated operation and maintenance system for TiDB clusters in Kubernetes. It provides full life-cycle management for TiDB. With TiDB Operator, TiDB can run seamlessly in the Kubernetes clusters deployed on a public or private cloud."
-    },
-    "tidbDataMigration": {
-      "type": "TiDB Data Migration",
-      "desc": "TiDB Data Migration (DM) is an integrated data replication task management platform that supports full data migration and incremental data migration from MySQL or MariaDB to TiDB. It can help reduce the operations cost and simplify the troubleshooting process."
-    },
-    "databaseTools": {
-      "type": "Database Tools",
-      "desc": "TiDB database tools are a collection of useful toolkits for migrating to or from TiDB, including Dumpling, TiDB Lightning, Backup & Restore (BR), TiCDC, sync-diff-inspector, and so on."
-    },
-    "tiup": {
-      "type": "TiUP",
-      "desc": "TiUP is a package manager that manages components in the TiDB ecosystem, such as TiDB, PD, TiKV, and so on. You can run any component with only a single line of TiUP commands, which is far easier to manage."
-    }
   },
   "docHelpful": {
     "header": "Was this page helpful?",

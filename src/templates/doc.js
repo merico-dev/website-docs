@@ -135,13 +135,11 @@ const Doc = ({
       />
       <Column size={7}>
         <div className="markdown-body doc-content">
-          {doc !== 'tidbcloud' && doc !== 'appdev' && (
-            <DeprecationNotice
-              name={name}
-              docVersionStable={docVersionStableMap}
-              versions={versions}
-            />
-          )}
+          <DeprecationNotice
+            name={name}
+            docVersionStable={docVersionStableMap}
+            versions={versions}
+          />
 
           <MDXProvider components={Shortcodes}>
             <MDXRenderer>{mdx.body}</MDXRenderer>
@@ -159,14 +157,8 @@ const Doc = ({
         <div className="right-aside">
           <Block>
             <DownloadPDF downloadURL={downloadURL} />
-            {doc !== 'tidbcloud' && (
-              <>
-                <FeedbackDoc repoInfo={repoInfo} lang={lang} />
-                {version === 'dev' && (
-                  <Improve repoInfo={repoInfo} lang={lang} />
-                )}
-              </>
-            )}
+            <FeedbackDoc repoInfo={repoInfo} lang={lang} />
+            {version === 'dev' && <Improve repoInfo={repoInfo} lang={lang} />}
           </Block>
           <div className="doc-toc">
             <Title size={6} style={{ marginBottom: 0 }}>

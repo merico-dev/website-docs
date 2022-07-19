@@ -30,8 +30,6 @@ function renameVersionByDoc(doc, version) {
     case 'ee':
     case 'tidb':
       return renameVersion(version, getStable(doc))
-    case 'tidbcloud':
-      return 'public-preview'
   }
 }
 exports.renameVersionByDoc = renameVersionByDoc

@@ -20,13 +20,7 @@
     "improve": "修改本文",
     "feedback": "反馈文档问题",
     "latestCommit": "更新于",
-    "deprecation": {
-      "tidb": {
-        "firstContext": "你正在查看 TiDB 数据库的较旧版本 (TiDB { curDocVersion }) 的文档。",
-        "secondContext": "如无特殊需求，建议使用 TiDB 数据库的{ link }。",
-        "link": "最新稳定版本"
-      }
-    }
+    "deprecation": {}
   },
   "shortcodes": {
     "note": "注意",
@@ -45,28 +39,11 @@
     "resultTips": {
       "counts": "共 {counts} 条搜索结果...",
       "title": "很抱歉，我们没有找到您期望的内容。",
-      "content1": "请尝试其它搜索词，或者尝试前往 AskTUG (TiDB User Group) 进行提问。",
+      "content1": "请尝试其它搜索词。",
       "content2": "如果您想搜索英文内容，请移步至英文文档进行搜索。"
     }
   },
-  "tools": {
-    "tidbOperator": {
-      "type": "TiDB Operator",
-      "desc": "TiDB Operator 是 Kubernetes 上的 TiDB 集群自动运维系统，提供包括部署、升级、扩缩容、备份恢复、配置变更的 TiDB 全生命周期管理。借助 TiDB Operator，TiDB 可以无缝运行在公有云或私有部署的 Kubernetes 集群上。"
-    },
-    "tidbDataMigration": {
-      "type": "TiDB Data Migration",
-      "desc": "TiDB Data Migration (DM) 是一体化的数据同步任务管理平台，支持从 MySQL 或 MariaDB 到 TiDB 的全量数据迁移和增量数据同步。使用 DM 工具有利于简化错误处理流程，降低运维成本。"
-    },
-    "databaseTools": {
-      "type": "TiDB 数据库工具",
-      "desc": "TiDB 数据库工具是处理 TiDB 导入导出数据的命令行实用程序的集合，包括全量导出工具 Dumpling、全量导入工具 TiDB Lightning、备份恢复工具 BR、增量同步工具 TiCDC、校验工具 sync-diff-inspector 等。"
-    },
-    "tiup": {
-      "type": "TiUP",
-      "desc": "TiUP 承担着包管理器的角色，管理着 TiDB 生态下众多的组件，如 TiDB、PD、TiKV 等。用户想要运行 TiDB 生态中任何组件时，只需要执行 TiUP 一行命令即可，相比以前，极大地降低了管理难度。"
-    }
-  },
+  "tools": {},
   "docHelpful": {
     "header": "文档内容是否有帮助？",
     "thumbUp": "是",
