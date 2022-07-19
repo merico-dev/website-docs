@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'Merico Docs',
     description:
-      'Browse documentation about TiDB and its ecosystem, including TiDB Operator, TiDB Data Migration, Database Tools, TiUP, etc.',
+      '基于深度代码分析技术，思码逸为企业研发团队提供一站式效能分析平台及配套解决方案。',
     author: '@Merico',
     siteUrl: 'https://docs.merico.cn',
   },
