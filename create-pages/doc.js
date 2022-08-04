@@ -44,17 +44,16 @@ const createDocs = async ({ graphql, createPage, createRedirect }) => {
     }
   `)
 
-  const nodes = docs.data.allMdx.nodes.map(node => {
-    // e.g. => zh/tidb-data-migration/master/benchmark-v1.0-ga => tidb-data-migration/master/benchmark-v1.0-ga
+  const nodes = docs.data.allMdx.nodes.map((node, index) => {
+    // e.g. => zh/ee/master/team_performance/1_efficiency_report => ee/master/team_performance/1_efficiency_report
     const slug = node.slug.slice(3)
     const { sourceInstanceName: topFolder, relativePath, name } = node.parent
     const [lang, ...pathWithoutLang] = relativePath.split('/') // [en|zh, pure path with .md]
     const [doc, version, ...rest] = pathWithoutLang
     node.realPath = rest.join('/')
 
-    const slugArray = slug.split('/')
-    // e.g. => tidb-data-migration/master/benchmark-v1.0-ga => benchmark-v1.0-ga
-    node.pathWithoutVersion = slugArray[slugArray.length - 1]
+    // e.g. => ee/master/team_performance/1_efficiency_report => team_performance/1_efficiency_report
+    node.pathWithoutVersion = slug.split('/master/')[1]
     node.path = replacePath(slug, name, lang, node.pathWithoutVersion)
     node.repo = getRepo(doc, lang)
     node.ref = version
