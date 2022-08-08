@@ -127,10 +127,10 @@ jobs:
       #     mv public/sitemap/sitemap-0.xml public/sitemap.xml
       #     ls -lhi .cache
 
-      # - name: Public Deploy to HK-staging
-      #   if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
-      #   run: |
-      #     rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' public/ "root@${{ secrets.HK_HOST }}:/root/website-docs/public"
+      - name: Put everything to HK-staging
+        if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
+        run: |
+          rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' ./.* "root@${{ secrets.HK_HOST }}:/root/website-docs/"
 
       # - name: Cache Deploy to HK-staging
       #   if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
