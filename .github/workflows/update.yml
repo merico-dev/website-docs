@@ -117,17 +117,16 @@ jobs:
       #     restore-keys: |
       #       ${{ runner.os }}-gatsby-cache-3-
 
-      - name: Build website
-        env:
-          CI: true
-          GATSBY_ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
-          GATSBY_ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
-        run: |
-          yarn build --verbose
-          mv public/sitemap/sitemap-0.xml public/sitemap.xml
-          ls -lhi .
-          ls -lhi .cache
+      # - name: Build website
+      #   env:
+      #     CI: true
+      #     GATSBY_ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+      #     GATSBY_ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+      #   run: |
+      #     yarn build --verbose
+      #     mv public/sitemap/sitemap-0.xml public/sitemap.xml
 
+      # ---- STAGING --
       - name: Put everything to HK-staging
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
         run: |
@@ -148,25 +147,26 @@ jobs:
         run: |
           ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "service website-docs status"
 
-      - name: Print Logs on HK-staging
-        if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
-        run: |
-          ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "journalctl -u website-docs --since '30 min ago'"
-
-      - name: Public Deploy to HK-prod
+      # ---- PRODUCTION --
+      - name: Put everything to HK-prod
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'prod' }}
         run: |
-          rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' public/ "root@${{ secrets.HK_HOST }}:/root/website-docs-prod/public"
+          rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' ./.* "root@${{ secrets.HK_HOST }}:/root/website-docs-prod/"
 
-      - name: Markdown Deploy to HK-prod
+      - name: Mod scripts on HK-staging
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'prod' }}
         run: |
-          rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' markdown-pages/ "root@${{ secrets.HK_HOST }}:/root/website-docs-prod/markdown-pages"
+          ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "chmod a+x /root/website-docs-prod/*.sh"
 
       - name: Restart Service on HK-prod
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'prod' }}
         run: |
           ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "service website-docs-prod restart"
+
+      - name: Print Service Status on HK-staging
+        if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'prod' }}
+        run: |
+          ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "service website-docs-prod status"
 
       - name: Update current commit sha to cache
         if: github.event.client_payload.download_type != 'full'
