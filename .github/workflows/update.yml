@@ -126,20 +126,20 @@ jobs:
           yarn build --verbose
           mv public/sitemap/sitemap-0.xml public/sitemap.xml
 
-      - name: Public Deploy to HK-staging
+      - name: Deploy Everything to HK-staging
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
         run: |
-          rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' public/ "root@${{ secrets.HK_HOST }}:/root/website-docs/public"
+          rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' .*/ "root@${{ secrets.HK_HOST }}:/root/website-docs/"
 
-      - name: Cache Deploy to HK-staging
-        if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
-        run: |
-          rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' .cache/ "root@${{ secrets.HK_HOST }}:/root/website-docs/.cache"
+      # - name: Markdown Deploy to HK-staging
+      #   if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
+      #   run: |
+      #     rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' markdown-pages/ "root@${{ secrets.HK_HOST }}:/root/website-docs/markdown-pages"
 
-      - name: Markdown Deploy to HK-staging
+      - name: Print Service Status on HK-staging
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
         run: |
-          rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' markdown-pages/ "root@${{ secrets.HK_HOST }}:/root/website-docs/markdown-pages"
+          ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "service website-docs status"
 
       - name: Restart Service on HK-staging
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
