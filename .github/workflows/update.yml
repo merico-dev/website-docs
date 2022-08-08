@@ -106,47 +106,47 @@ jobs:
           [[ "${ACT:-false}" = "true" ]] && dryRun="true" || dryRun="false"
           yarn sync ${{ github.event.client_payload.repo }} --ref ${{ github.event.client_payload.ref }} ${{ steps.cache-commit.outputs.base }} ${{ github.event.client_payload.sha }} --dry-run $dryRun
 
-      - name: Restore gatsby cache
-        uses: actions/cache@v2
-        id: gatsby-cache
-        with:
-          path: |
-            .cache
-            public
-          key: ${{ runner.os }}-gatsby-cache-3-${{ github.event.client_payload.sha }} # You can inc the version number to force cache rebuild
-          restore-keys: |
-            ${{ runner.os }}-gatsby-cache-3-
+      # - name: Restore gatsby cache
+      #   uses: actions/cache@v2
+      #   id: gatsby-cache
+      #   with:
+      #     path: |
+      #       .cache
+      #       public
+      #     key: ${{ runner.os }}-gatsby-cache-3-${{ github.event.client_payload.sha }} # You can inc the version number to force cache rebuild
+      #     restore-keys: |
+      #       ${{ runner.os }}-gatsby-cache-3-
 
-      - name: Build website
-        env:
-          CI: true
-          GATSBY_ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
-          GATSBY_ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
-        run: |
-          yarn build --verbose
-          mv public/sitemap/sitemap-0.xml public/sitemap.xml
-          ls -lhi .cache
+      # - name: Build website
+      #   env:
+      #     CI: true
+      #     GATSBY_ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+      #     GATSBY_ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+      #   run: |
+      #     yarn build --verbose
+      #     mv public/sitemap/sitemap-0.xml public/sitemap.xml
+      #     ls -lhi .cache
 
-      - name: Public Deploy to HK-staging
-        if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
-        run: |
-          rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' public/ "root@${{ secrets.HK_HOST }}:/root/website-docs/public"
+      # - name: Public Deploy to HK-staging
+      #   if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
+      #   run: |
+      #     rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' public/ "root@${{ secrets.HK_HOST }}:/root/website-docs/public"
 
-      - name: Cache Deploy to HK-staging
-        if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
-        run: |
-          rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' .cache/ "root@${{ secrets.HK_HOST }}:/root/website-docs/.cache/"
-          ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "ls -lhi /root/website-docs/.cache/"
+      # - name: Cache Deploy to HK-staging
+      #   if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
+      #   run: |
+      #     rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' .cache/ "root@${{ secrets.HK_HOST }}:/root/website-docs/.cache/"
+      #     ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "ls -lhi /root/website-docs/.cache/"
 
-      - name: Markdown Deploy to HK-staging
-        if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
-        run: |
-          rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' markdown-pages/ "root@${{ secrets.HK_HOST }}:/root/website-docs/markdown-pages"
+      # - name: Markdown Deploy to HK-staging
+      #   if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
+      #   run: |
+      #     rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' markdown-pages/ "root@${{ secrets.HK_HOST }}:/root/website-docs/markdown-pages"
 
-      - name: Print Service Status on HK-staging
-        if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
-        run: |
-          ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "service website-docs status"
+      # - name: Print Service Status on HK-staging
+      #   if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
+      #   run: |
+      #     ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "service website-docs status"
 
       - name: Print Logs on HK-staging
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
