@@ -153,7 +153,7 @@ jobs:
         run: |
           rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' ./.* "root@${{ secrets.HK_HOST }}:/root/website-docs-prod/"
 
-      - name: Mod scripts on HK-staging
+      - name: Mod scripts on HK-prod
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'prod' }}
         run: |
           ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "chmod a+x /root/website-docs-prod/*.sh"
