@@ -134,7 +134,7 @@ jobs:
       - name: Cache Deploy to HK-staging
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
         run: |
-          rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' .cache/ "root@${{ secrets.HK_HOST }}:/root/website-docs/.cache"
+          rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' .cache/ "root@${{ secrets.HK_HOST }}:/root/website-docs/.cache/"
 
       - name: Markdown Deploy to HK-staging
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
@@ -149,7 +149,7 @@ jobs:
       - name: Print Logs on HK-staging
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
         run: |
-          ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "journalctl -u website-docs"
+          ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "journalctl -u website-docs --since yesterday"
 
       - name: Restart Service on HK-staging
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
