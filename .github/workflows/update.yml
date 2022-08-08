@@ -141,6 +141,16 @@ jobs:
         run: |
           rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' markdown-pages/ "root@${{ secrets.HK_HOST }}:/root/website-docs/markdown-pages"
 
+      - name: Print Service Status on HK-staging
+        if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
+        run: |
+          ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "service website-docs status"
+
+      - name: Print Logs on HK-staging
+        if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
+        run: |
+          ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "journalctl -u website-docs"
+
       - name: Restart Service on HK-staging
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
         run: |
