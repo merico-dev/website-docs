@@ -125,6 +125,7 @@ jobs:
         run: |
           yarn build --verbose
           mv public/sitemap/sitemap-0.xml public/sitemap.xml
+          ls -lhi .cache
 
       - name: Public Deploy to HK-staging
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
@@ -135,6 +136,7 @@ jobs:
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
         run: |
           rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' .cache/ "root@${{ secrets.HK_HOST }}:/root/website-docs/.cache/"
+          ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "ls -lhi /root/website-docs/.cache/"
 
       - name: Markdown Deploy to HK-staging
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
