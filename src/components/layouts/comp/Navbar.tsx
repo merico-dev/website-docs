@@ -166,7 +166,7 @@ export function Navbar() {
             <NavbarItem as="a" href="https://www.merico.cn/blog" target="_blank" className={styles.main}>
               <FormattedMessage id="navbar.blog" />
             </NavbarItem>
-            <NavbarItem as="a" href="https://www.fqixin.cn/fsh5/smart-form/index.html?cardId=620df64ae053d138800af82e" target="_blank" className={styles.main}>
+            <NavbarItem as="a" href="https://www.merico.cn/demo-request" target="_blank" className={styles.main}>
               <FormattedMessage id="navbar.freeTrial" />
             </NavbarItem>
             <NavbarItem as="a" href="https://www.merico.cn/contact-us" target="_blank" className={styles.main}>
