@@ -92,5 +92,8 @@
   },
   "lint-staged": {
     "*.js?(x)": "prettier --write"
+  },
+  "volta": {
+    "node": "16.20.2"
   }
 }

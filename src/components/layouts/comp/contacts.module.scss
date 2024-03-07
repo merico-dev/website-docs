@@ -1,0 +1,42 @@
+.contacts {
+  background-color: #f4f4f8;
+  border-radius: 10px;
+  padding: 20px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+.infoBlock {
+  padding: 0 10px;
+  width: 150px;
+}
+.qrCode {
+
+}
+.infoTitle {
+  display: block;
+  color: #151621;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+.telTitle {
+  display: block;
+  color: #151621;
+  text-align: center;
+  margin-bottom: 0px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+.telNumber {
+  display: block;
+  color: #151621;
+  text-align: center;
+  margin-bottom: 0px;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 24px;
+}
