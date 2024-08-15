@@ -7,7 +7,7 @@ export function Contacts() {
       wechatQRCode: file(relativePath: { eq: "merico-wechat-qr-code.svg" }) {
         publicURL
       }
-      contactQRCode: file(relativePath: { eq: "merico-contact-qr-code.svg" }) {
+      contactQRCode: file(relativePath: { eq: "merico-contact-qr-code.png" }) {
         publicURL
       }
     }
