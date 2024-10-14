@@ -9,6 +9,9 @@ module.exports = {
     siteUrl: 'https://docs.merico.cn',
   },
   jsxRuntime: 'automatic',
+  flags: {
+    PARALLEL_QUERY_RUNNING: false,
+  },
   plugins: [
     // {
     //   resolve: `gatsby-plugin-google-analytics`,
