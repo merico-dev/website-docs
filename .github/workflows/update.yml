@@ -163,7 +163,7 @@ jobs:
         run: |
           ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "service website-docs-prod restart"
 
-      - name: Print Service Status on HK-staging
+      - name: Print Service Status on HK-prod
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'prod' }}
         run: |
           ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "service website-docs-prod status"
