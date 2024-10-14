@@ -158,9 +158,13 @@ jobs:
         run: |
           ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "chmod a+x /root/website-docs-prod/*.sh"
 
+      # https://github.com/gatsbyjs/gatsby/discussions/32389
+      # https://github.com/gatsbyjs/gatsby/discussions/34473
+      # gatsby 自身 bug，暂时启动两次可以解决
       - name: Restart Service on HK-prod
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'prod' }}
         run: |
+          ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "service website-docs-prod start"
           ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "service website-docs-prod restart"
 
       - name: Print Service Status on HK-prod
