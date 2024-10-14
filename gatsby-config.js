@@ -11,6 +11,7 @@ module.exports = {
   jsxRuntime: 'automatic',
   flags: {
     PARALLEL_QUERY_RUNNING: false,
+    PARALLEL_SOURCING: false,
   },
   plugins: [
     // {
