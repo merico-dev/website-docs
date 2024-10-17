@@ -63,6 +63,7 @@ public
 .DS_Store
 
 # Yarn
+.yarn/
 yarn-error.log
 .pnp/
 .pnp.js
