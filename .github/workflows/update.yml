@@ -150,9 +150,7 @@ jobs:
 
       # ---- PRODUCTION ONLY --
 
-      # https://github.com/gatsbyjs/gatsby/discussions/32389
-      # https://github.com/gatsbyjs/gatsby/discussions/34473
-      - name: Build website
+      - name: Build website in prod
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'prod' }}
         run: |
           yarn build --verbose
