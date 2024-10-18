@@ -42,8 +42,8 @@ jobs:
       - uses: actions/setup-node@v2
         if: ${{ !env.ACT }}
         with:
-          node-version: "16"
-          cache: "yarn"
+          node-version: '16'
+          cache: 'yarn'
 
       - name: Install yarn (ACT)
         # Since actions/setup-node currently errors out when run locally, here is a manual installation
@@ -126,7 +126,8 @@ jobs:
       #     yarn build --verbose
       #     mv public/sitemap/sitemap-0.xml public/sitemap.xml
 
-      # ---- STAGING --
+      # ---- STAGING ONLY --
+
       - name: Put everything to HK-staging
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
         run: |
@@ -147,7 +148,16 @@ jobs:
         run: |
           ssh -o "StrictHostKeyChecking no" root@${{ secrets.HK_HOST }} "service website-docs status"
 
-      # ---- PRODUCTION --
+      # ---- PRODUCTION ONLY --
+
+      # https://github.com/gatsbyjs/gatsby/discussions/32389
+      # https://github.com/gatsbyjs/gatsby/discussions/34473
+      - name: Build website
+        if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'prod' }}
+        run: |
+          yarn build --verbose
+          yarn cache clean --all
+
       - name: Put everything to HK-prod
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'prod' }}
         run: |
