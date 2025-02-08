@@ -131,7 +131,7 @@ jobs:
       - name: Put everything to HK-staging
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
         run: |
-          rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' ./.* "root@${{ secrets.HK_HOST }}:/root/website-docs/"
+          rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' ./ "root@${{ secrets.HK_HOST }}:/root/website-docs/"
 
       - name: Mod scripts on HK-staging
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'staging' }}
@@ -159,7 +159,7 @@ jobs:
       - name: Put everything to HK-prod
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'prod' }}
         run: |
-          rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' ./.* "root@${{ secrets.HK_HOST }}:/root/website-docs-prod/"
+          rsync -avz --delete -e 'ssh -o StrictHostKeyChecking=no' ./ "root@${{ secrets.HK_HOST }}:/root/website-docs-prod/"
 
       - name: Mod scripts on HK-prod
         if: ${{ !env.ACT && github.repository_owner == 'merico-dev' && github.event.client_payload.env == 'prod' }}
