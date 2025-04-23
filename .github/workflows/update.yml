@@ -39,10 +39,10 @@ jobs:
           known_hosts: |
             ${{ steps.known-hosts.outputs.HK }}
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v4
         if: ${{ !env.ACT }}
         with:
-          node-version: '16'
+          node-version: '20'
           cache: 'yarn'
 
       - name: Install yarn (ACT)
