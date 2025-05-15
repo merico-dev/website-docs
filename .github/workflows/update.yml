@@ -1,4 +1,4 @@
-name: Incremental Build Website Docs Triggered By Push Events
+name: Incremental build website docs triggered by push events
 
 on: repository_dispatch
 
@@ -190,6 +190,7 @@ jobs:
   notify-feishu-on-failure:
     name: Notify Feishu on Failure
     runs-on: ubuntu-latest
+    needs: build
     if: failure()
     steps:
       - name: Send notification to Feishu on failure
